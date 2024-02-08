@@ -17,7 +17,7 @@ defineEmits([
     'decrement-quantity', 
     'add-cart', 
     'delete-product',
-    'empty-cart'
+    'pay-credit-card'
 ]);
 
 const totalPay = computed(() => {
@@ -37,6 +37,7 @@ const totalPay = computed(() => {
                     <div 
                         class="carrito"
                     >
+                        <span v-if="cart.length">{{ cart.length }}</span>
                         <img class="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" class="bg-white p-3">
@@ -93,7 +94,7 @@ const totalPay = computed(() => {
                                     </tbody>
                                 </table>
                                 <p class="text-end">Total pagar: <span class="fw-bold">${{ totalPay }}</span></p>
-                                <button class="btn btn-dark w-100 mt-3 p-2" @click="$emit('empty-cart')">Vaciar Carrito</button>
+                                <button class="btn btn-dark w-100 mt-3 p-2" @click="$emit('pay-credit-card')">Pay with credit card</button>
                             </div>
                         </div>
                     </div>
